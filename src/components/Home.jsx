@@ -15,6 +15,12 @@ justify-content: center;
 align-items: center;
 `;
 
+
+const SearchContainer =  styled.div``;
+const SearchInput = styled.input``;
+const SearchButton = styled.button``;
+const SearchLocation = styled.button``;
+const ViewContainer  = styled.div``;
 const LoaderItem = styled(Loader)`
 width: 500px;
 height: 100px;
@@ -25,17 +31,13 @@ width: 500px;
 height: 100px;
 border: 2px solid green;
 `;
-const SearchContainer =  styled.div``;
-const SearchInput = styled.input``;
-const SearchButton = styled.button``;
-const SearchLocation = styled.button``;
 
 function Home() {
 
   const [location, setLocation] = useState(null);
   const [city, setCity] = useState('');
-  const [weather,setWeather]= useState({});
-  const [weather5d,setWeather5d]= useState({});
+  const [weather,setWeather]= useState(null);
+  const [weather5d,setWeather5d]= useState(null);
   const getLocation = () =>{
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -102,23 +104,16 @@ function Home() {
         }
       }
     }
-    const getWeatherByLocation = () =>{
-      getLocation();
-       location.latitude ? getWeather() : null
-      
-
-    }
-    console.log(weather)
-console.log(weather5d)
-console.log(location)
+  useEffect(() => {
+    location ? getWeather() : getLocation() 
+  },[location])
   return (
   <Container>
   <SearchContainer >
   <SearchInput value={city} onChange={(e) =>setCity(e.target.value)} />
-  <SearchButton onClick={getCity}>Search by City</SearchButton>
-  <SearchLocation onClick={getWeatherByLocation}>Search my location</SearchLocation>
+  <SearchButton onClick={getCity}>Search</SearchButton>
   </SearchContainer>
-
+  { !weather ? <LoaderItem /> : <CardItem weather={weather} weather5d={weather5d} />}
    </Container>
   )
 }

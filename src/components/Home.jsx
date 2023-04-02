@@ -6,9 +6,9 @@ import Search from "./Search";
 import Card from "./Card";
 
 const Container = styled.div`
-width: 100%;
-height: 100%;
-background-color: #c6d2d4;
+width: auto;
+height: 750px;
+background-color: #e4ca82e1;
 display: flex;
 flex-flow: column nowrap;
 justify-content: center;
@@ -16,20 +16,56 @@ align-items: center;
 `;
 
 
-const SearchContainer =  styled.div``;
-const SearchInput = styled.input``;
-const SearchButton = styled.button``;
+const SearchContainer =  styled.div`
+
+`;
+const SearchInput = styled.input`
+  background-color: #edf5f083; 
+  color: #cbc55b;
+  width: 460px;
+  height:10px;
+  font-size: 16px ;
+  border-radius: 60px;
+  padding: 16px ;
+  border: 6px solid #ffffff`;
+
+const SearchButton = styled.button`
+  background-color: #edf5f083;
+  color: #baad3d;
+  font-size: 16px ;
+  border-radius: 60px;
+  padding: 0.5rem 1rem ;
+  margin: 1rem;
+  cursor: pointer;
+  border: 6px solid #ffffff;
+  outline: none;
+  &:hover {
+    background-color: #e4e4dfd2;
+    color: #827522;
+  }
+`;
 const SearchLocation = styled.button``;
 const ViewContainer  = styled.div``;
 const LoaderItem = styled(Loader)`
 width: 500px;
 height: 100px;
-border: 2px solid blue;
+border: 18px solid blue;
 `;
 const CardItem = styled(Card)`
-width: 500px;
+/* width: 500px;
 height: 100px;
-border: 2px solid green;
+border: 2px solid green; */
+  width: 200px;
+  height: 250px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(101, 43, 43, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: sans-serif;
 `;
 
 function Home() {

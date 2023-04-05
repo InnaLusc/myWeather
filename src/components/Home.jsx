@@ -2,10 +2,15 @@ import React,{ useEffect, useState} from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Loader from "./Loader";
-import Search from "./Search";
 import Card from "./Card";
 
+
 const Container = styled.div`
+  font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 width: auto;
 height: 750px;
 background-color: #e4ca82e1;
@@ -14,7 +19,6 @@ flex-flow: column nowrap;
 justify-content: center;
 align-items: center;
 `;
-
 
 const SearchContainer =  styled.div`
 
@@ -27,7 +31,8 @@ const SearchInput = styled.input`
   font-size: 16px ;
   border-radius: 60px;
   padding: 16px ;
-  border: 6px solid #ffffff`;
+  border: 6px solid #ffffff;
+  `;
 
 const SearchButton = styled.button`
   background-color: #edf5f083;
@@ -52,9 +57,7 @@ height: 100px;
 border: 18px solid blue;
 `;
 const CardItem = styled(Card)`
-/* width: 500px;
-height: 100px;
-border: 2px solid green; */
+
   width: 200px;
   height: 250px;
   background-color: #fff;
@@ -143,6 +146,7 @@ function Home() {
   useEffect(() => {
     location ? getWeather() : getLocation() 
   },[location])
+
   return (
   <Container>
   <SearchContainer >

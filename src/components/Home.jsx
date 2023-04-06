@@ -6,37 +6,34 @@ import Card from "./Card";
 
 
 const Container = styled.div`
-  font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 width: auto;
 height: 750px;
+background: url('./') no-repeat center center/cover;
 background-color: #e4ca82e1;
 display: flex;
 flex-flow: column nowrap;
 justify-content: center;
 align-items: center;
-`;
 
+//
+`;
 const SearchContainer =  styled.div`
-
 `;
+
 const SearchInput = styled.input`
   background-color: #edf5f083; 
   color: #cbc55b;
-  width: 460px;
+  min-width: 90%;
+  max-width: 500px;
   height:10px;
   font-size: 16px ;
   border-radius: 60px;
   padding: 16px ;
   border: 6px solid #ffffff;
   `;
-
 const SearchButton = styled.button`
   background-color: #edf5f083;
-  color: #baad3d;
+  color: #6d6219;
   font-size: 16px ;
   border-radius: 60px;
   padding: 0.5rem 1rem ;
@@ -46,29 +43,25 @@ const SearchButton = styled.button`
   outline: none;
   &:hover {
     background-color: #e4e4dfd2;
-    color: #827522;
+    color: #6d6219;
   }
 `;
-const SearchLocation = styled.button``;
-const ViewContainer  = styled.div``;
 const LoaderItem = styled(Loader)`
 width: 500px;
 height: 100px;
 border: 18px solid blue;
+text-transform: uppercase;
 `;
 const CardItem = styled(Card)`
-
+/* 
   width: 200px;
   height: 250px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(101, 43, 43, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
-  font-family: sans-serif;
+  justify-content: center; */
 `;
 
 function Home() {
@@ -89,7 +82,7 @@ function Home() {
     );
   };
     async function getCity() {
-      let request = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=6ae6c79ccba3cdde251bf0965d4d137a`;
+      let request = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&units=metric&appid=6ae6c79ccba3cdde251bf0965d4d137a`;
       try {
         const { data } = await axios.get(request, {
           headers: { Accept: "application/json" },
@@ -109,7 +102,7 @@ function Home() {
     }
  
     async function getWeather() {
-      let request = `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=6ae6c79ccba3cdde251bf0965d4d137a`;
+      let request = `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=6ae6c79ccba3cdde251bf0965d4d137a`;
       try {
         const { data } = await axios.get(request, {
           headers: { Accept: "application/json" },

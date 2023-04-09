@@ -8,14 +8,11 @@ import Card from "./Card";
 const Container = styled.div`
 width: auto;
 height: 750px;
-background: url('./') no-repeat center center/cover;
 background-color: #e4ca82e1;
 display: flex;
 flex-flow: column nowrap;
 justify-content: center;
 align-items: center;
-
-//
 `;
 const SearchContainer =  styled.div`
 `;

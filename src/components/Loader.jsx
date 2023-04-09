@@ -1,14 +1,19 @@
 import React from "react";
 
-const LoaderLo = styled.div`
-/* width: 500px;
-height: 100px; */
-//
-`;
+
+
+// const LoaderGif = styled.img`
+//  
+// `;
+
+
 
 function Loader() {
   return (
-    <LoaderLo>Loading...</ LoaderLo>
+    // <LoaderContainer>
+    <Loader>Loading...</ Loader>
+    //  { <LoaderGif ></LoaderGif>
+    // </LoaderContainer> }
   )
  
 }

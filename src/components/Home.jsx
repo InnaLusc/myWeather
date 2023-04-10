@@ -3,11 +3,13 @@ import axios from "axios";
 import styled from "styled-components";
 import Loader from "./Loader";
 import Card from "./Card";
-
+import img from '../assets/fon.jpg';
 
 const Container = styled.div`
+ background-image: url(${img});
 width: auto;
-height: 750px;
+height:750px;
+border: 2px solid red;
 background-color: #e4ca82e1;
 display: flex;
 flex-flow: column nowrap;
@@ -15,6 +17,10 @@ justify-content: center;
 align-items: center;
 `;
 const SearchContainer =  styled.div`
+display: flex;
+flex-flow: row;
+justify-content: center;
+align-items: center;
 `;
 
 const SearchInput = styled.input`
@@ -46,7 +52,6 @@ const SearchButton = styled.button`
 const LoaderItem = styled(Loader)`
 width: 500px;
 height: 100px;
-border: 18px solid blue;
 text-transform: uppercase;
 `;
 const CardItem = styled(Card)`
@@ -140,8 +145,7 @@ function Home() {
   return (
   <Container>
   <SearchContainer >
-  <SearchInput value={city} onChange={(e) =>setCity(e.target.value)} />
-  <SearchButton onClick={getCity}>Search</SearchButton>
+  <SearchInput value={city} onChange={(e) =>setCity(e.target.value)} /> <SearchButton onClick={getCity}>Search</SearchButton>
   </SearchContainer>
   { !weather ? <LoaderItem /> : <CardItem weather={weather} weather5d={weather5d} />}
    </Container>

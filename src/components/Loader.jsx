@@ -1,19 +1,18 @@
 import React from "react";
+import styled from "styled-components";
 
-
-
-// const LoaderGif = styled.img`
-//  
-// `;
+const Content = styled.div`
+color: #804711;
+text-transform: uppercase;
+`;
 
 
 
 function Loader() {
   return (
-    // <LoaderContainer>
-    <Loader>Loading...</ Loader>
-    //  { <LoaderGif ></LoaderGif>
-    // </LoaderContainer> }
+     <Content>
+    Loading...
+    </Content> 
   )
  
 }

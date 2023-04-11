@@ -3,18 +3,20 @@ import axios from "axios";
 import styled from "styled-components";
 import Loader from "./Loader";
 import Card from "./Card";
-import img from '../assets/fon.jpg';
+import img from '../assets/mor.jpg';
+
 
 const Container = styled.div`
- background-image: url(${img});
+ background-image: url(${img}) ;
 width: auto;
-height:750px;
-border: 2px solid red;
+height:1000px;
 background-color: #e4ca82e1;
 display: flex;
 flex-flow: column nowrap;
-justify-content: center;
+justify-content: start;
 align-items: center;
+margin: -3px;
+padding: 30px;
 `;
 const SearchContainer =  styled.div`
 display: flex;
@@ -55,15 +57,6 @@ height: 100px;
 text-transform: uppercase;
 `;
 const CardItem = styled(Card)`
-/* 
-  width: 200px;
-  height: 250px;
-  background-color: #fff;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
 `;
 
 function Home() {
@@ -72,7 +65,7 @@ function Home() {
   const [city, setCity] = useState('');
   const [weather,setWeather]= useState(null);
   const [weather5d,setWeather5d]= useState(null);
-  const getLocation = () =>{
+  const getLocation = () => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
@@ -141,7 +134,7 @@ function Home() {
   useEffect(() => {
     location ? getWeather() : getLocation() 
   },[location])
-
+console.log()
   return (
   <Container>
   <SearchContainer >

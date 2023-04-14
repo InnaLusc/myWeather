@@ -3,31 +3,33 @@ import axios from "axios";
 import styled from "styled-components";
 import Loader from "./Loader";
 import Card from "./Card";
-import img from '../assets/mor.jpg';
+import img from '../assets/Co.jpg';
 
 
 const Container = styled.div`
  background-image: url(${img}) ;
-width: auto;
-height:1000px;
+width: 100%;
+height:100vh;
+background-position: center;
+background-size: cover;
 background-color: #e4ca82e1;
 display: flex;
 flex-flow: column nowrap;
 justify-content: start;
-align-items: center;
+align-items: flex-start;
 margin: -3px;
 padding: 30px;
 `;
 const SearchContainer =  styled.div`
 display: flex;
-flex-flow: row;
-justify-content: center;
+flex-flow: row nowrap;
+justify-content: start;
 align-items: center;
 `;
 
 const SearchInput = styled.input`
   background-color: #edf5f083; 
-  color: #cbc55b;
+  color: #6d6219;
   min-width: 90%;
   max-width: 500px;
   height:10px;
@@ -52,9 +54,6 @@ const SearchButton = styled.button`
   }
 `;
 const LoaderItem = styled(Loader)`
-width: 500px;
-height: 100px;
-text-transform: uppercase;
 `;
 const CardItem = styled(Card)`
 `;
@@ -138,7 +137,8 @@ console.log()
   return (
   <Container>
   <SearchContainer >
-  <SearchInput value={city} onChange={(e) =>setCity(e.target.value)} /> <SearchButton onClick={getCity}>Search</SearchButton>
+  <SearchInput value={city} onChange={(e) =>setCity(e.target.value)} /> 
+  <SearchButton onClick={getCity}>Search</SearchButton>
   </SearchContainer>
   { !weather ? <LoaderItem /> : <CardItem weather={weather} weather5d={weather5d} />}
    </Container>

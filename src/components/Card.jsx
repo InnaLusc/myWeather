@@ -52,18 +52,27 @@ align-items: center;
 
 `;
 
+const Weather5dCard = styled.div`
+
+`;
+const Card1 = styled.div``;
+const Card2 = styled.div``;
+const Card3 = styled.div``;
+const Card4 = styled.div``;
+const Card5 = styled.div``;
 const options = {
   title: {
     text: 'Weather from 5 day'
   },
   series: [{
+    categories: [`1 `, `2`, `3`, `4`, `5` ],
     data: [1, 2, 3, 4, 5]
   }]
 }
 
 
 const Card = ({weather, weather5d}) => {
-    // console.log(weather)
+    console.log(weather)
      console.log(weather5d)
  return(
 
@@ -71,7 +80,7 @@ const Card = ({weather, weather5d}) => {
       <CurrentTemp>
       <span className="city">📍{weather.name}</span>
        <span className="temp">{weather.main.temp} °C</span>
-       {/* {weather.} */}
+      
       </CurrentTemp>
       <CurrentWeather>        
         <span className="cel"> Feels Like <p> 🌡️ {weather.main.feels_like} °C </p></span>
@@ -79,10 +88,33 @@ const Card = ({weather, weather5d}) => {
         <span className="water">Humidity<p>💧 {weather.main.humidity} %</p></span>
         </CurrentWeather>
         <Weather5d>
-        <HighchartsReact
+          <Weather5dCard>
+            <Card1> 
+            <span className="data">{weather.clouds.main} </span>
+            <span className="temp">{weather.main.temp} °C</span>
+            </Card1>
+            <Card2> 
+            <span className="data">{weather.clouds.main} </span>
+            <span className="temp">{weather.main.temp} °C</span>
+            </Card2>
+            <Card3> 
+            <span className="data">{weather.clouds.main} </span>
+            <span className="temp">{weather.main.temp} °C</span>
+            </Card3>
+            <Card4> 
+            <span className="data">{weather.clouds.main} </span>
+            <span className="temp">{weather.main.temp} °C</span>
+            </Card4>
+            <Card5> 
+            <span className="data">{weather.clouds.main} </span>
+            <span className="temp">{weather.main.temp} °C</span>
+            </Card5>
+            
+          </Weather5dCard>
+        {/* <HighchartsReact
     highcharts={Highcharts} 
     options={options}
-  />
+  /> */}
         </Weather5d>
 
     </Container>

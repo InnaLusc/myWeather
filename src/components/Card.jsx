@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
+// import Highcharts from 'highcharts'
+// import HighchartsReact from 'highcharts-react-official';
 
  
- 
+
+  const Iret = styled.img`
+ height: 50px;
+ width: 50px;
+  `;
+
  const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -12,8 +17,8 @@ import HighchartsReact from 'highcharts-react-official'
   align-items: center;
   gap: 40px;
   cursor: pointer;
-
  `;
+
 const CurrentTemp = styled.div`
 display: flex;
 flex-direction: column;
@@ -48,27 +53,40 @@ margin: 2rem;
 const Weather5d = styled.div`
 display: flex;
 justify-content: end;
-align-items: center;
-
+align-items: center; 
 `;
 
 const Weather5dCard = styled.div`
-
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 20px;
+width: 14rem;
+margin: auto;
+padding: 1rem 1rem;
+top: 10%;
+background-color: #edf5f083;
+color: #6d6219;
+font-size: 20px ;
+border-radius: 15px;
+padding: 2rem 2rem ;
+margin: 1rem;
 `;
 const Card1 = styled.div``;
 const Card2 = styled.div``;
 const Card3 = styled.div``;
 const Card4 = styled.div``;
 const Card5 = styled.div``;
-const options = {
-  title: {
-    text: 'Weather from 5 day'
-  },
-  series: [{
-    categories: [`1 `, `2`, `3`, `4`, `5` ],
-    data: [1, 2, 3, 4, 5]
-  }]
-}
+// const options = {
+//   title: {
+//     text: 'Weather from 5 day'
+//   },
+//   series: [{
+//     categories: [`1 `, `2`, `3`, `4`, `5` ],
+//     data: [1, 2, 3, 4, 5]
+//   }]
+// }
 
 
 const Card = ({weather, weather5d}) => {
@@ -78,9 +96,9 @@ const Card = ({weather, weather5d}) => {
 
     <Container>
       <CurrentTemp>
+      <Iret src={`https://openweathermap.org/img/wn/${weather.weather[0]['icon']}@2x.png`}/>
       <span className="city">📍{weather.name}</span>
-       <span className="temp">{weather.main.temp} °C</span>
-      
+      <span className="temp">{weather.main.temp} °C</span>
       </CurrentTemp>
       <CurrentWeather>        
         <span className="cel"> Feels Like <p> 🌡️ {weather.main.feels_like} °C </p></span>
@@ -90,10 +108,10 @@ const Card = ({weather, weather5d}) => {
         <Weather5d>
           <Weather5dCard>
             <Card1> 
-            <span className="data">{weather.clouds.main} </span>
+            <span className="data">{weather.weather.dt_txt} </span>
             <span className="temp">{weather.main.temp} °C</span>
             </Card1>
-            <Card2> 
+            {/* <Card2> 
             <span className="data">{weather.clouds.main} </span>
             <span className="temp">{weather.main.temp} °C</span>
             </Card2>
@@ -108,7 +126,7 @@ const Card = ({weather, weather5d}) => {
             <Card5> 
             <span className="data">{weather.clouds.main} </span>
             <span className="temp">{weather.main.temp} °C</span>
-            </Card5>
+            </Card5> */}
             
           </Weather5dCard>
         {/* <HighchartsReact

@@ -7,7 +7,7 @@ import img from '../assets/Co.jpg';
 
 
 const Container = styled.div`
- background-image: url(${img}) ;
+background-image: url(${img});
 width: 100%;
 height:100vh;
 background-position: center;
@@ -38,6 +38,7 @@ const SearchInput = styled.input`
   padding: 16px ;
   border: 6px solid #ffffff;
   `;
+
 const SearchButton = styled.button`
   background-color: #edf5f083;
   color: #6d6219;
@@ -137,7 +138,7 @@ console.log()
   return (
   <Container>
   <SearchContainer >
-  <SearchInput value={city} onChange={(e) =>setCity(e.target.value)} /> 
+  <SearchInput placeholder="City Name ..." value={city} onChange={(e) =>setCity(e.target.value)} /> 
   <SearchButton onClick={getCity}>Search</SearchButton>
   </SearchContainer>
   { !weather ? <LoaderItem /> : <CardItem weather={weather} weather5d={weather5d} />}

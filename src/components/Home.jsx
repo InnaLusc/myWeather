@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Loader from "./Loader";
 import Card from "./Card";
 import img from '../assets/Co.jpg';
+import CardDay from "./CardDay";
 
 
 const Container = styled.div`
@@ -57,6 +58,8 @@ const SearchButton = styled.button`
 const LoaderItem = styled(Loader)`
 `;
 const CardItem = styled(Card)`
+`;
+const WetDataTime = styled.div`
 `;
 
 function Home() {
@@ -138,10 +141,18 @@ console.log()
   return (
   <Container>
   <SearchContainer >
-  <SearchInput placeholder="City Name ..." value={city} onChange={(e) =>setCity(e.target.value)} /> 
+  <SearchInput placeholder="City Name ..." value={city}  onChange={(e) =>setCity(e.target.value)} /> 
   <SearchButton onClick={getCity}>Search</SearchButton>
   </SearchContainer>
   { !weather ? <LoaderItem /> : <CardItem weather={weather} weather5d={weather5d} />}
+  { !weather5d ? <LoaderItem /> : <WetDataTime>
+    <CardDay data={weather5d.list[1]}/> 
+    <CardDay data={weather5d.list[9]}/>
+    <CardDay data={weather5d.list[17]}/>
+    <CardDay data={weather5d.list[25]}/>
+    <CardDay data={weather5d.list[33]}/>
+    </WetDataTime>
+    }
    </Container>
   )
 }

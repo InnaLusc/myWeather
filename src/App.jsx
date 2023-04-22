@@ -14,9 +14,6 @@ const GlobalStyle = createGlobalStyle`
 }
 `;
 
-
-
-
 const App = () => {
   
   return (

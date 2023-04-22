@@ -1,32 +1,38 @@
 import React from "react";
 import styled from "styled-components";
+import * as dayjs from 'dayjs'
+dayjs().format()
 
 const Container = styled.div`
 display: flex;
-flex-direction: row;
-justify-content: end;
-align-items: end;
-gap: 20px;
-width: 14rem;
-margin: auto;
-padding: 1rem 1rem;
+flex-direction: column ;
+justify-content: space-between;
+align-items: center;
+gap: 10px;
+margin: 10px;
+padding: 30px;
 top: 10%;
 background-color: #edf5f083;
 color: #6d6219;
 font-size: 20px ;
 border-radius: 15px;
-padding: 2rem 2rem ;
-margin: 1rem;
+`;
+const IconWeather = styled.img`
+ height: 70px;
+ width: 70px;
 `;
 const IconImg = styled.img``;
 
 function CardDay({data}) {
+    const Crop = (item) => {
+        return dayjs(item).format('DD MMMM')
+    };
     console.log(data)
   return(
     <Container>
-        
-    <span className="data">{data.dt_txt}</span>;
-    {/* <span className="temp">{main.temp} °C</span> */}
+    <IconWeather src={`https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png`}/>
+    <span>{Crop(data.dt_txt)}</span>
+    <span>{data.main.temp} °C</span>
     </Container>
   )
 }

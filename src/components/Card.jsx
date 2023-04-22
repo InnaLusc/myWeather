@@ -1,112 +1,71 @@
 import React from "react";
 import styled from "styled-components";
-// import Highcharts from 'highcharts'
-// import HighchartsReact from 'highcharts-react-official';
 import CardDay from "./CardDay";
  
 
-  const Iret = styled.img`
- height: 50px;
- width: 50px;
-  `;
-
  const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: auto;
   gap: 40px;
   cursor: pointer;
  `;
-
-const CurrentTemp = styled.div`
+ const Iret = styled.img`
+ height: 100px;
+ width: 100px;
+  `;
+const CurrentTempName = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+width: 500px;
+height: 400px;
+gap: 30px;
+/* top: 10%; */
+/* background-color: #edf5f083; */
+color: #6d6219;
+font-family: serif;
+font-size: 40px ;
+/* border-radius: 15px; */
+`;
+
+const CurrentInfo = styled.div` 
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 500px;
+height: 400px;
+
 gap: 20px;
-width: 14rem;
-margin: auto;
-padding: 1rem 1rem;
-top: 10%;
 background-color: #edf5f083;
 color: #6d6219;
 font-size: 20px ;
-border-radius: 15px;
-padding: 2rem 2rem ;
-margin: 1rem;
-`;
-
-const CurrentWeather = styled.div` 
-display: flex;
-flex-direction: column nowrap;
-justify-content: space-between;
-gap: 16px;
-background-color: #edf5f083;
-color: #6d6219;
-font-size: 16px ;
 border-radius: 15px;
 padding: 2rem 2rem ;
 margin: 2rem;
 `;
 
-const Weather5d = styled.div`
-display: flex;
-justify-content: end;
-align-items: center; 
-`;
 
-const Weather5dCard = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 20px;
-width: 14rem;
-margin: auto;
-padding: 1rem 1rem;
-top: 10%;
-background-color: #edf5f083;
-color: #6d6219;
-font-size: 20px ;
-border-radius: 15px;
-padding: 2rem 2rem ;
-margin: 1rem;
-`;
-
-// const options = {
-//   title: {
-//     text: 'Weather from 5 day'
-//   },
-//   series: [{
-//     categories: [`1 `, `2`, `3`, `4`, `5` ],
-//     data: [1, 2, 3, 4, 5]
-//   }]
-// }
-
-
-const Card = ({weather, weather5d}) => {
-    // console.log(weather)
-    //  console.log(weather5d)
+const Card = ({weather}) => {
+  console.log(weather);
  return(
-
     <Container>
-      <CurrentTemp>
+      <CurrentTempName>
       <Iret src={`https://openweathermap.org/img/wn/${weather.weather[0]['icon']}@2x.png`}/>
-      <span className="city">📍{weather.name}</span>
+      <span className="city">{weather.name}</span>
       <span className="temp">{weather.main.temp} °C</span>
-      </CurrentTemp>
-      <CurrentWeather>        
-        <span className="cel"> Feels Like <p> 🌡️ {weather.main.feels_like} °C </p></span>
-        <span className="weter">Wind Speed <p>💨 {weather.wind.speed} m/s </p></span>
-        <span className="water">Humidity<p>💧 {weather.main.humidity} %</p></span>
-        </CurrentWeather>
-        {/* <Weather5d> 
-        <HighchartsReact
-    highcharts={Highcharts} 
-    options={options}
-  />
-        </Weather5d>  */}
+      </CurrentTempName>
+      <CurrentInfo>        
+        <span className="cel">🌡️ Feels Like {weather.main.feels_like} °C </span>
+        <span className="cel">⇧ Max  {weather.main.temp_max} °C </span>
+        <span className="cel">⇩  Min  {weather.main.temp_min} °C </span>
+        <span className="weter">💨 Wind Speed {weather.wind.speed} m/s </span>
+        <span className="water">💧 Humidity {weather.main.humidity} %</span>
+      </CurrentInfo>
     </Container>
  )
 }

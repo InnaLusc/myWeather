@@ -8,22 +8,28 @@ import CardDay from "./CardDay";
 
 
 const Container = styled.div`
-background-image: url(${img});
-position: fixed;
+max-width: 100%;
+height: 100vh;
+position: relative;
+background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
 top: 0;
 left: 0;
 width: 100%;
 height: 100%;
 z-index: 4444;
-/* background-position: center;
-background-size: cover; */
+background-position: center;
+background-size: cover;
 background-color: #e4ca82e1;
+
 `;
 
 const SearchContainer =  styled.div`
 display: flex;
 flex-direction:row;
-justify-content: start;
+justify-content: center;
 gap: 10px; 
 padding: 30px;
 `;
@@ -73,7 +79,6 @@ display: flex;
 flex-flow: row;
 justify-content: center;
 align-items: center;
-gap: 50px;
 margin:10px;
 `;
 

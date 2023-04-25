@@ -21,7 +21,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-width: 500px;
+max-width: 500px;
 height: 400px;
 gap: 30px;
 /* top: 10%; */
@@ -39,7 +39,7 @@ justify-content: center;
 align-items: center;
 width: 500px;
 height: 400px;
-
+object-fit:cover;
 gap: 20px;
 background-color: #edf5f083;
 color: #6d6219;

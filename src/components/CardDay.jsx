@@ -9,6 +9,7 @@ flex-direction: column ;
 justify-content: space-between;
 align-items: center;
 gap: 10px;
+object-fit: cover;
 margin: 10px;
 padding: 30px;
 top: 10%;
@@ -20,6 +21,7 @@ border-radius: 15px;
 const IconWeather = styled.img`
  height: 70px;
  width: 70px;
+ object-fit:cover;
 `;
 const IconImg = styled.img``;
 

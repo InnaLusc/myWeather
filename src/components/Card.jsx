@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import CardDay from "./CardDay";
  
 
  const Container = styled.div`
@@ -16,6 +15,7 @@ import CardDay from "./CardDay";
  height: 100px;
  width: 100px;
   `;
+  
 const CurrentTempName = styled.div`
 display: flex;
 flex-direction: column;
@@ -24,12 +24,9 @@ align-items: center;
 max-width: 500px;
 height: 400px;
 gap: 30px;
-/* top: 10%; */
-/* background-color: #edf5f083; */
-color: #6d6219;
+color: #d9d9d7;
 font-family: serif;
 font-size: 40px ;
-/* border-radius: 15px; */
 `;
 
 const CurrentInfo = styled.div` 
@@ -37,12 +34,12 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-width: 500px;
-height: 400px;
-object-fit:cover;
-gap: 20px;
+width: 400px;
+height: 300px;
 background-color: #edf5f083;
 color: #6d6219;
+object-fit:cover;
+gap: 20px;
 font-size: 20px ;
 border-radius: 15px;
 padding: 2rem 2rem ;
@@ -57,13 +54,13 @@ const Card = ({weather}) => {
       <CurrentTempName>
       <Iret src={`https://openweathermap.org/img/wn/${weather.weather[0]['icon']}@2x.png`}/>
       <span className="city">{weather.name}</span>
-      <span className="temp">{weather.main.temp} °C</span>
+      <span className="temp">{weather.main.temp.toFixed()} °C</span>
       </CurrentTempName>
       <CurrentInfo>        
-        <span className="cel">🌡️ Feels Like {weather.main.feels_like} °C </span>
-        <span className="cel">⇧ Max  {weather.main.temp_max} °C </span>
-        <span className="cel">⇩  Min  {weather.main.temp_min} °C </span>
-        <span className="weter">💨 Wind Speed {weather.wind.speed} m/s </span>
+        <span className="cel">🌡️ Feels Like {weather.main.feels_like.toFixed()} °C </span>
+        <span className="cel">⇧ Max  {weather.main.temp_max.toFixed()} °C </span>
+        <span className="cel">⇩  Min  {weather.main.temp_min.toFixed()} °C </span>
+        <span className="weter">💨 Wind Speed {weather.wind.speed.toFixed()} m/s </span>
         <span className="water">💧 Humidity {weather.main.humidity} %</span>
       </CurrentInfo>
     </Container>

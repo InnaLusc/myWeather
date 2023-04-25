@@ -5,7 +5,7 @@ const Content = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-color: #6d6219;
+color: #e5e3db;
 text-transform: uppercase;
 margin: 300px;
 `;

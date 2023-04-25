@@ -3,7 +3,6 @@ import axios from "axios";
 import styled from "styled-components";
 import Loader from "./Loader";
 import Card from "./Card";
-import img from '../assets/Co.jpg';
 import CardDay from "./CardDay";
 
 
@@ -11,19 +10,15 @@ const Container = styled.div`
 max-width: 100%;
 height: 100vh;
 position: relative;
-background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  height: 100vh;
+background: linear-gradient(-45deg, #2d2d2b, #b99a46, #23a6d5, #dfdcd8);
 top: 0;
 left: 0;
-width: 100%;
+width: 100%;  
 height: 100%;
 z-index: 4444;
 background-position: center;
 background-size: cover;
 background-color: #e4ca82e1;
-
 `;
 
 const SearchContainer =  styled.div`
@@ -55,15 +50,12 @@ const SearchButton = styled.button`
   cursor: pointer;
   border: 6px solid #ffffff;
   outline: none;
-  /* &:hover {
-    background-color: #e4e4dfd2;
-    color: #6d6219;
-  } */
 `;
-const LoaderItem = styled(Loader)`
-`;
-const CardItem = styled(Card)`
-`;
+
+const LoaderItem = styled(Loader)``;
+
+const CardItem = styled(Card)``;
+
 const BoxDay = styled.div`
 display: flex;
 flex-direction: column ;
@@ -71,9 +63,11 @@ justify-content: center;
 align-items: center;
 gap: 20px;
 `;
-const OneDay = styled.div`
-`;
+
+const OneDay = styled.div``;
+
 const FiveDay = styled.div``;
+
 const WetDataTime = styled.div`
 display: flex;
 flex-flow: row;

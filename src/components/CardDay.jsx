@@ -13,16 +13,25 @@ object-fit: cover;
 margin: 10px;
 padding: 30px;
 top: 10%;
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.16);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(0px);
+-webkit-backdrop-filter: blur(0px);
+border: 1px solid rgba(255, 255, 255, 1);
 background-color: #edf5f083;
 color: #6d6219;
 font-size: 20px ;
 border-radius: 15px;
 `;
+
 const IconWeather = styled.img`
  height: 70px;
  width: 70px;
  object-fit:cover;
 `;
+
 const IconImg = styled.img``;
 
 function CardDay({data}) {
@@ -34,7 +43,7 @@ function CardDay({data}) {
     <Container>
     <IconWeather src={`https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png`}/>
     <span>{Crop(data.dt_txt)}</span>
-    <span>{data.main.temp} °C</span>
+    <span>{data.main.temp.toFixed()} °C</span>
     </Container>
   )
 }

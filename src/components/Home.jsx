@@ -82,17 +82,33 @@ function Home() {
   const [city, setCity] = useState('');
   const [weather,setWeather]= useState(null);
   const [weather5d,setWeather5d]= useState(null);
+  // const getLocation = () => {
+  //   navigator.geolocation.getCurrentPosition(
+  //     (position) => {
+  //       const { latitude, longitude } = position.coords;
+  //       setLocation({ latitude, longitude });
+  //     },
+  //     (error) => {
+  //       console.error(error);
+  //     }
+  //   );
+  // };
   const getLocation = () => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        setLocation({ latitude, longitude });
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setLocation({ latitude, longitude });
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported in this browser");
+    }
   };
+  
     async function getCity() {
       let request = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&units=metric&appid=6ae6c79ccba3cdde251bf0965d4d137a`;
       try {
@@ -101,7 +117,6 @@ function Home() {
         });
         setLocation({ latitude : data[0].lat, longitude : data[0].lon});
         getWeather()
-
       } catch (error) {
         if (axios.isAxiosError(error)) {
           console.log("error message: ", error.message);
@@ -138,7 +153,6 @@ function Home() {
           headers: { Accept: "application/json" },
         });
         setWeather5d(data)
-        console.log(weather5d.list[1])
       } catch (error) {
         if (axios.isAxiosError(error)) {
           console.log("error message: ", error.message);

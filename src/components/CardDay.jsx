@@ -13,13 +13,11 @@ object-fit: cover;
 margin: 10px;
 padding: 30px;
 top: 10%;
-/* From https://css.glass */
-background: rgba(255, 255, 255, 0.16);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(0px);
 -webkit-backdrop-filter: blur(0px);
-border: 1px solid rgba(255, 255, 255, 1);
+border: 4px solid rgba(255, 255, 255, 1);
 background-color: #edf5f083;
 color: #6d6219;
 font-size: 20px ;
@@ -38,7 +36,6 @@ function CardDay({data}) {
     const Crop = (item) => {
         return dayjs(item).format('DD MMMM')
     };
-    console.log(data)
   return(
     <Container>
     <IconWeather src={`https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png`}/>

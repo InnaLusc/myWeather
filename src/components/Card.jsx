@@ -36,6 +36,10 @@ justify-content: center;
 align-items: center;
 width: 400px;
 height: 300px;
+border-radius: 35px;
+backdrop-filter: blur(0px);
+-webkit-backdrop-filter: blur(0px);
+border: 5px solid rgba(255, 255, 255, 1);
 background-color: #edf5f083;
 color: #6d6219;
 object-fit:cover;
@@ -46,9 +50,7 @@ padding: 2rem 2rem ;
 margin: 2rem;
 `;
 
-
 const Card = ({weather}) => {
-  console.log(weather);
  return(
     <Container>
       <CurrentTempName>
